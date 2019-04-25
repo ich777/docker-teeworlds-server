@@ -32,7 +32,7 @@ fi
 
 echo "---Preparing Server---"
 if [ ! -f ${SERVER_DIR}/steamcmd.sh ]; then
-   cd ${SERVER_DIR}
+   cd ${SERVER_DIR}/teeworlds
    wget -qi https://raw.githubusercontent.com/ich777/docker-teeworlds-server/master/configs/ctf.cfg
    wget -qi https://raw.githubusercontent.com/ich777/docker-teeworlds-server/master/configs/dm.cfg
    wget -qi https://raw.githubusercontent.com/ich777/docker-teeworlds-server/master/configs/lts.cfg
