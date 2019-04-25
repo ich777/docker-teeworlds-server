@@ -24,15 +24,21 @@ elif [ "$LAT_V" != "$CUR_V" ]; then
    tar --directory ${SERVER_DIR} -xvzf /serverdata/serverfiles/teeworlds-$LAT_V-linux_x86_64.tar.gz
    mv ${SERVER_DIR}/teeworlds-$LAT_V-linux_x86_64 ${SERVER_DIR}/teeworlds
 elif [ "$NEW_VERSION" == "$CUR_VERSION" ]; then
-     echo "---Teeworlds Version up-to-date---"
+   echo "---Teeworlds Version up-to-date---"
 else
-     echo "---Something went wrong, putting server in sleep mode---"
-     sleep infinity
+   echo "---Something went wrong, putting server in sleep mode---"
+   sleep infinity
 fi
 
 echo "---Preparing Server---"
+if [ ! -f ${SERVER_DIR}/steamcmd.sh ]; then
+   cd ${SERVER_DIR}
+   wget -qi https://raw.githubusercontent.com/ich777/docker-teeworlds-server/master/configs/ctf.cfg
+   wget -qi https://raw.githubusercontent.com/ich777/docker-teeworlds-server/master/configs/dm.cfg
+   wget -qi https://raw.githubusercontent.com/ich777/docker-teeworlds-server/master/configs/lts.cfg
+fi
 chmod -R 770 ${DATA_DIR}
 
 echo "---Starting Server---"
 cd ${SERVER_DIR}/teeworlds
-./teeworlds_srv -f ${CONFIG_DIR}/${GAME_CONFIG}
+./teeworlds_srv -f ${GAME_CONFIG}
