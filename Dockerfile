@@ -22,7 +22,8 @@ RUN chown -R teeworlds $DATA_DIR
 RUN ulimit -n 2048
 
 ADD /scripts/ /opt/scripts/
-RUN chmod -R 770 /opt/scripts/
+ADD /config/ ${CONFIG_DIR}/
+RUN chmod -R 770 /opt/scripts/ && chmod -R 770 ${CONFIG_DIR}/
 RUN chown -R teeworlds /opt/scripts
 
 USER teeworlds
