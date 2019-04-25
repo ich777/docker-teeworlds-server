@@ -3,7 +3,7 @@ FROM ubuntu
 MAINTAINER ich777
 
 RUN apt-get update
-RUN apt-get -y install curl language-pack-en
+RUN apt-get -y install curl wget language-pack-en
 
 ENV DATA_DIR="/serverdata"
 ENV CONFIG_DIR="${DATA_DIR}/configs"
