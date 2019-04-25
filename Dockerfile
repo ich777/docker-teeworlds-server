@@ -6,7 +6,6 @@ RUN apt-get update
 RUN apt-get -y install curl wget language-pack-en
 
 ENV DATA_DIR="/serverdata"
-ENV CONFIG_DIR="${DATA_DIR}/configs"
 ENV SERVER_DIR="${DATA_DIR}/serverfiles"
 ENV GAME_CONFIG="template"
 ENV GAME_PORT=8303
