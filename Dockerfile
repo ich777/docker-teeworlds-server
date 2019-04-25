@@ -13,7 +13,6 @@ ENV UID=99
 ENV GID=100
 
 RUN mkdir $DATA_DIR
-RUN mkdir $CONFIG_DIR
 RUN mkdir $SERVER_DIR
 RUN useradd -d $DATA_DIR -s /bin/bash --uid $UID --gid $GID teeworlds
 RUN chown -R teeworlds $DATA_DIR
