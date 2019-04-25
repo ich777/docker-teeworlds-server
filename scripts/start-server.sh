@@ -1,4 +1,5 @@
 echo "---Install Server---"
+sleep infinity
 <TODO>
 
 
