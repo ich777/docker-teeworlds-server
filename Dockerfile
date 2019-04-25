@@ -22,11 +22,7 @@ RUN chown -R teeworlds $DATA_DIR
 RUN ulimit -n 2048
 
 ADD /scripts/ /opt/scripts/
-COPY /configs/dm.cfg /serverdata/configs/dm.cfg
-COPY /configs/dm.cfg /serverdata/configs/ctf.cfg
-COPY /configs/dm.cfg /serverdata/configs/lts.cfg
 RUN chmod -R 770 /opt/scripts/
-RUN chmod -R 770 /serverdata/configs/
 RUN chown -R teeworlds /opt/scripts
 
 USER teeworlds
