@@ -12,7 +12,7 @@ if [ -z "$CUR_V" ]; then
    | wget -qi -
    tar --directory ${SERVER_DIR} -xvzf /serverdata/serverfiles/teeworlds-$LAT_V-linux_x86_64.tar.gz
    mv ${SERVER_DIR}/teeworlds-$LAT_V-linux_x86_64 ${SERVER_DIR}/teeworlds  
-elif [ "$LAT_V" -ne "$CUR_V" ]; then
+elif [ "$LAT_V" != "$CUR_V" ]; then
    echo "---Newer version found, installing!---"
    rm ${SERVER_DIR}/teeworlds-$CUR_V-linux_x86_64.tar.gz
    cd ${SERVER_DIR}
