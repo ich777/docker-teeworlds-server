@@ -23,7 +23,7 @@ elif [ "$LAT_V" != "$CUR_V" ]; then
    | wget -qi -
    tar --directory ${SERVER_DIR} -xvzf /serverdata/serverfiles/teeworlds-$LAT_V-linux_x86_64.tar.gz
    mv ${SERVER_DIR}/teeworlds-$LAT_V-linux_x86_64 ${SERVER_DIR}/teeworlds
-elif [ "$NEW_VERSION" == "$CUR_VERSION" ]; then
+elif [ "$CUR_V" == "$LAT_V" ]; then
    echo "---Teeworlds Version up-to-date---"
 else
    echo "---Something went wrong, putting server in sleep mode---"
