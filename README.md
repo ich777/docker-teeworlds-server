@@ -26,3 +26,5 @@ docker run --name Teeworlds -d \
 ***ATTENTION: Please don't delete the tar.gz file in the main directory!***
 
 Update Notice: Simply restart the container if a newer version of the game is available and the container will download and install it.
+
+### Support Thread: https://forums.unraid.net/topic/79530-support-ich777-gameserver-dockers/
