@@ -1,6 +1,8 @@
 #!/bin/bash
 CUR_V="$(find -name teeworlds[^extended]*\.tar\.gz | cut -d '-' -f 2)"
 LAT_V="$(curl -s https://api.github.com/repos/teeworlds/teeworlds/releases/latest | grep tag_name | cut -d '"' -f4)"
+echo "---Setting umask to ${UMASK}---"
+umask ${UMASK}
 
 if [ -z "$CUR_V" ]; then
    echo "---Teeworlds not found!---"
@@ -38,7 +40,7 @@ if [ ! -f ${SERVER_DIR}/teeworlds/autoexec.cfg ]; then
    wget -qi https://raw.githubusercontent.com/ich777/docker-teeworlds-server/master/configs/dm.cfg
    wget -qi https://raw.githubusercontent.com/ich777/docker-teeworlds-server/master/configs/tdm.cfg
 fi
-chmod -R 770 ${DATA_DIR}
+chmod -R 777 ${DATA_DIR}
 
 echo "---Starting Server---"
 cd ${SERVER_DIR}/teeworlds
