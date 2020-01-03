@@ -1,9 +1,10 @@
-FROM ubuntu
+FROM ich777/debian-baseimage
 
-MAINTAINER ich777
+LABEL maintainer="admin@minenet.at"
 
-RUN apt-get update
-RUN apt-get -y install curl wget language-pack-en
+RUN apt-get update && \
+	apt-get -y install --no-install-recommends curl && \
+	rm -rf /var/lib/apt/lists/*
 
 ENV DATA_DIR="/serverdata"
 ENV SERVER_DIR="${DATA_DIR}/serverfiles"
@@ -13,16 +14,15 @@ ENV UMASK=000
 ENV UID=99
 ENV GID=100
 
-RUN mkdir $DATA_DIR
-RUN mkdir $SERVER_DIR
-RUN useradd -d $DATA_DIR -s /bin/bash --uid $UID --gid $GID teeworlds
-RUN chown -R teeworlds $DATA_DIR
-
-RUN ulimit -n 2048
+RUN mkdir $DATA_DIR && \
+	mkdir $SERVER_DIR && \
+	useradd -d $DATA_DIR -s /bin/bash --uid $UID --gid $GID teeworlds && \
+	chown -R teeworlds $DATA_DIR && \
+	ulimit -n 2048
 
 ADD /scripts/ /opt/scripts/
-RUN chmod -R 770 /opt/scripts/
-RUN chown -R teeworlds /opt/scripts
+RUN chmod -R 770 /opt/scripts/ && \
+	chown -R teeworlds /opt/scripts
 
 USER teeworlds
 
