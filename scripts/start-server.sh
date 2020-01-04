@@ -36,22 +36,22 @@ echo "---Preparing Server---"
 if [ ! -f ${SERVER_DIR}/teeworlds/autoexec.cfg ]; then
    cd ${SERVER_DIR}/teeworlds
    if wget -q -nc --show-progress --progress=bar:force:noscroll https://raw.githubusercontent.com/ich777/docker-teeworlds-server/master/configs/autoexec.cfg ; then
-   	echo "---Sucessfully downloaded 'autoexec.cfg'---"
+   	echo "---Successfully downloaded 'autoexec.cfg'---"
    else
    	echo "---Can't download 'autoexec.cfg', continuing...---"
    fi
    if wget -q -nc --show-progress --progress=bar:force:noscroll https://raw.githubusercontent.com/ich777/docker-teeworlds-server/master/configs/ctf.cfg ; then
-	echo "---Sucessfully downloaded 'ctf.cfg'---"
+	echo "---Successfully downloaded 'ctf.cfg'---"
    else
    	echo "---Can't download 'ctf.cfg', continuing...---"
    fi
    if wget -q -nc --show-progress --progress=bar:force:noscroll https://raw.githubusercontent.com/ich777/docker-teeworlds-server/master/configs/dm.cfg ; then
-	echo "---Sucessfully downloaded 'dm.cfg'---"
+	echo "---Successfully downloaded 'dm.cfg'---"
    else
    	echo "---Can't download 'dm.cfg', continuing...---"
    fi
    if wget -q -nc --show-progress --progress=bar:force:noscroll https://raw.githubusercontent.com/ich777/docker-teeworlds-server/master/configs/tdm.cfg ; then
-	echo "---Sucessfully downloaded 'tdm.cfg'---"
+	echo "---Successfully downloaded 'tdm.cfg'---"
    else
    	echo "---Can't download 'tdm.cfg', continuing...---"
    fi
